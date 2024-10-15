@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        .hero-section {
+            background-image: url('robot.png'); /* 替换为你的机器人图片URL */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色覆盖层 */
+            backdrop-filter: blur(10px); /* 磨玻璃效果 */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 20px auto;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* 人工客服窗口样式 */
+        .chat-box {
+            border: 2px solid #007bff; /* 边框颜色 */
+            border-radius: 10px; /* 圆角 */
+            padding: 15px; /* 内边距 */
+            background-color: #f8f9fa; /* 背景颜色 */
+            position: fixed; /* 固定位置 */
+            bottom: 20px; /* 距离底部20px */
+            right: 20px; /* 距离右侧20px */
+            width: 300px; /* 窗口宽度 */
+            display: none; /* 默认隐藏 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        }
+
+        .chat-toggle {
+            position: fixed; /* 固定位置 */
+            bottom: 20px; /* 距离底部20px */
+            right: 20px; /* 距离右侧20px */
+            background-color: #007bff; /* 按钮背景色 */
+            color: white; /* 按钮字体颜色 */
+            border: none; /* 去掉边框 */
+            border-radius: 50%; /* 圆形按钮 */
+            width: 50px; /* 按钮宽度 */
+            height: 50px; /* 按钮高度 */
+            display: flex; /* 使用flex布局 */
+            align-items: center; /* 垂直居中 */
+            justify-content: center; /* 水平居中 */
+            cursor: pointer; /* 鼠标指针样式 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Winkode.org</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="winkode.html">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">关于我们</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="services.html">服务 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="download.html">下载</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">联系我们</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>服务</h1>
+        <p>这是服务页面的内容。</p>
+
+        <!-- 人工客服窗口 -->
+        <div class="chat-box" id="chatBox">
+            <h3>人工客服</h3>
+            <form id="chatForm" onsubmit="handleChatSubmit(event)">
+                <div class="form-group">
+                    <label for="userQuestion">请输入您的问题：</label>
+                    <textarea class="form-control" id="userQuestion" rows="3" placeholder="在这里输入您的问题" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">发送</button>
+            </form>
+        </div>
+
+        <!-- 切换按钮 -->
+        <button class="chat-toggle" id="chatToggle">💬</button>
+    </div>
+
+    <script>
+        function handleChatSubmit(event) {
+            event.preventDefault(); // 阻止表单的默认提交行为
+            const question = document.getElementById('userQuestion').value;
+            alert("您的问题已提交: " + question); // 显示提交的内容
+            document.getElementById('chatForm').reset(); // 重置表单
+        }
+
+        // 切换人工客服窗口的显示和隐藏
+        document.getElementById('chatToggle').addEventListener('click', function() {
+            const chatBox = document.getElementById('chatBox');
+            if (chatBox.style.display === 'none' || chatBox.style.display === '') {
+                chatBox.style.display = 'block'; // 显示窗口
+            } else {
+                chatBox.style.display = 'none'; // 隐藏窗口
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

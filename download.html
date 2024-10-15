@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .btn-custom {
+            background-color: #007bff; /* 自定义背景色 */
+            color: white; /* 字体颜色 */
+            border: none; /* 去掉边框 */
+            border-radius: 5px; /* 圆角 */
+            padding: 10px 20px; /* 内边距 */
+            transition: background-color 0.3s; /* 背景色过渡效果 */
+            margin-bottom: 15px; /* 增加按钮之间的间距 */
+        }
+        .btn-custom:hover {
+            background-color: #0056b3; /* 悬停时的背景色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Winkode.org</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="winkode.html">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">关于我们</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">服务</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="download.html">下载 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">联系我们</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>下载资源</h1>
+        <p>请点击以下链接下载我们的资源：</p>
+        <ul>
+            <li><a class="btn btn-custom" href="software.zip">最新软件包下载</a></li>
+            <li><a class="btn btn-custom" href="guide.pdf">用户手册下载</a></li>
+        </ul>
+
+        <h2>更新日志</h2>
+        <div class="accordion" id="updateLogAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            版本 winkode.300 - 2024年7月11日
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#updateLogAccordion">
+                    <div class="card-body">
+                        - 初始网络发布版本<br>
+                        - 包含基本功能和用户手册
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-custom" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            版本 winkode.300-GM - 2024年7月26日
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#updateLogAccordion">
+                    <div class="card-body">
+                        - 修复了一些已知问题<br>
+                        - 增加了新游戏
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

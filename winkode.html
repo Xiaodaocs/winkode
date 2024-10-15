@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>winkode官网</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* 自定义样式 */
+        .hero-section {
+            background-image: url('robot.png'); /* 替换为你的机器人图片URL */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色覆盖层 */
+            backdrop-filter: blur(10px); /* 磨玻璃效果 */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 20px auto;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Winkode.org</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">主页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">服务</a></li>
+                    <li class="nav-item"><a class="nav-link" href="download.html">下载</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>欢迎来到Winkode系列产品的官网</h1>
+            <p>请 往 下 翻 动</p>
+        </div>
+    </section>
+
+    <section id="about" data-aos="fade-up">
+        <h2>关于我们</h2>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p>winkode和childsoft只有臖一个人开发。</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>我们是一家专注于创新和技术的公司Childsoft。</p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="download" data-aos="fade-up">
+        <h2>下载</h2>
+        <a href="wickDOS.300-GM_vscc.cpp" download class="btn btn-primary">下载 Winkode vscode 版</a>
+    </section>
+    <section id="download" data-aos="fade-up"></section>
+        <h2>下载</h2>
+        <a href="wickDOS.300-GM_devc.cpp" download class="btn btn-primary">下载 Winkode DEV 版</a>
+    </section>
+
+    <footer>
+        <p>版权所有 &copy; 2024 Childsoft</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
